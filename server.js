@@ -35,7 +35,18 @@ app.post("/save-response", (req, res) => {
   });
 });
 
+app.get("/responses", (req, res) => {
+  fs.readFile("responses.txt", "utf8", (err, data) => {
+    if (err) {
+      return res.send("No responses yet OR file not found.");
+    }
+    res.send(`<pre>${data}</pre>`);
+  });
+});
+
+
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
