@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>FlameThreads | Premium Kurtis & Suits</title>
+  <meta name="description" content="FlameThreads - Premium Kurtis and Suits in Germany. Minimalist fashion for modern women." />
+
+  <!-- Website Icon (Favicon) -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #111;
+    }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      padding: 14px 40px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 1000;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .brand img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ddd;
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #c57d2c;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #444;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* CATEGORY BUTTONS */
+    .category-section {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .category-card {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 2px solid #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+      transition: 0.3s;
+      background: #fafafa;
+      position: relative;
+    }
+
+    .category-card:hover {
+      transform: scale(1.05);
+      border-color: #c57d2c;
+    }
+
+    .category-card img {
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    .category-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #111;
+    }
+
+    /* PRODUCTS */
+    .container {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      border: 1px solid #eee;
+      border-radius: 16px;
+      padding: 15px;
+      transition: 0.3s;
+      background: white;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: #c57d2c;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      border-radius: 14px;
+      border: 2px dashed #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 12px;
+    }
+
+    .product-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .sizes {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .size-btn {
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background: white;
+      font-size: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .size-btn:hover {
+      border-color: #c57d2c;
+      color: #c57d2c;
+    }
+
+    .add-cart {
+      width: 100%;
+      padding: 10px;
+      border-radius: 12px;
+      border: none;
+      background: #111;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .add-cart:hover {
+      background: #c57d2c;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      margin-top: 70px;
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .contact-section h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .contact-section p {
+      color: #555;
+      margin-bottom: 18px;
+    }
+
+    .contact-placeholder {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      height: 150px;
+      border-radius: 16px;
+      border: 2px dashed #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #eee;
+      font-size: 13px;
+      color: #666;
+    }
+
+    footer img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ddd;
+      margin-bottom: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .hero h2 {
+        font-size: 26px;
+      }
+
+      .category-card {
+        width: 180px;
+        height: 180px;
+      }
+
+      .category-card img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand" onclick="loadHome()">
+      <img src="assets/logo.jpg" alt="FlameThreads Logo">
+      <h1>FlameThreads</h1>
+    </div>
+
+    <nav>
+      <a href="#" onclick="loadHome()">Home</a>
+      <a href="#" onclick="loadKurti()">Kurti</a>
+      <a href="#" onclick="loadSuits()">Suits</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HOME PAGE -->
+  <div id="homePage">
+    <section class="hero">
+      <h2>Minimal. Elegant. Premium.</h2>
+      <p>
+        Welcome to FlameThreads — premium Kurti & Suit collections in Germany.
+        Choose your category below.
+      </p>
+
+      <div class="category-section">
+        <div class="category-card" onclick="loadKurti()">
+          <img src="assets/logo.jpg" alt="Kurti Section Logo">
+          <h3>Kurti</h3>
+        </div>
+
+        <div class="category-card" onclick="loadSuits()">
+          <img src="assets/logo.jpg" alt="Suit Section Logo">
+          <h3>Suits</h3>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PRODUCTS PAGE -->
+  <div class="container hidden" id="productsPage">
+    <h2 class="section-title" id="pageTitle">Products</h2>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Products will load dynamically -->
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-section" id="contact">
+    <h3>Contact FlameThreads</h3>
+    <p>
+      (Later you can add WhatsApp, Instagram, Email, Address here.)
+    </p>
+
+    <div class="contact-placeholder">
+      Contact Form / Contact Details Placeholder
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="assets/logo.jpg" alt="FlameThreads Logo">
+    <div>© 2026 FlameThreads | Germany | Premium Kurtis & Suits</div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const homePage = document.getElementById("homePage");
+    const productsPage = document.getElementById("productsPage");
+    const productsGrid = document.getElementById("productsGrid");
+    const pageTitle = document.getElementById("pageTitle");
+
+    function loadHome() {
+      productsPage.classList.add("hidden");
+      homePage.classList.remove("hidden");
+    }
+
+    function loadKurti() {
+      homePage.classList.add("hidden");
+      productsPage.classList.remove("hidden");
+
+      pageTitle.innerText = "Kurti Collection";
+      loadProducts("Kurti");
+    }
+
+    function loadSuits() {
+      homePage.classList.add("hidden");
+      productsPage.classList.remove("hidden");
+
+      pageTitle.innerText = "Suit Collection";
+      loadProducts("Suit");
+    }
+
+    function loadProducts(type) {
+      productsGrid.innerHTML = "";
+
+      for (let i = 1; i <= 8; i++) {
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+
+        productCard.innerHTML = `
+          <div class="product-image">${type} Image Placeholder</div>
+          <h4>${type} ${i}</h4>
+
+          <div class="sizes">
+            <button class="size-btn">S</button>
+            <button class="size-btn">M</button>
+            <button class="size-btn">L</button>
+            <button class="size-btn">XL</button>
+          </div>
+
+          <button class="add-cart" onclick="addToCart('${type} ${i}')">
+            Add to Cart
+          </button>
+        `;
+
+        productsGrid.appendChild(productCard);
+      }
+    }
+
+    function addToCart(productName) {
+      alert(productName + " added to cart (Demo Feature)");
+    }
+  </script>
+
+</body>
+</html>
